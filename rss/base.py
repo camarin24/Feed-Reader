@@ -1,5 +1,6 @@
 from .feed import Feed
 import feedparser
+import ssl
 
 
 class RssBase(object):
@@ -21,11 +22,11 @@ class RssBase(object):
             A Feed object
         """
         return Feed(
-            title=item['title'],
-            summary=item['summary'],
+            title=item['title'].encode("utf8"),
+            summary=item['summary'].encode("utf8"),
             date=item['published_parsed'],
             url=item['link'],
-            tags=[i['term'] for i in item['tags']]
+            tags=[i['term'].encode("utf8") for i in item['tags']]
         )
 
     def get_feeds(self, url):
@@ -39,8 +40,11 @@ class RssBase(object):
         """
 
         try:
+            if hasattr(ssl, '_create_unverified_context'):
+                ssl._create_default_https_context = ssl._create_unverified_context
             return feedparser.parse(url)['items']
-        except:
+        except NameError:
+            print(NameError)
             return []
 
     def headline_classifier(self, feeds):
@@ -54,7 +58,9 @@ class RssBase(object):
     def run(self):
         result = []
         for url in self.source_urls:
-            feeds = [self.parse(f) for f in self.get_feeds(url)]
+            u_feeds = self.get_feeds(url)
+            print(len(u_feeds))
+            feeds = [self.parse(f) for f in u_feeds]
             result.extend(self.headline_classifier(feeds))
 
         return result

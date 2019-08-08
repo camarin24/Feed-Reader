@@ -5,11 +5,11 @@
 # https://towardsdatascience.com/data-science-skills-web-scraping-javascript-using-python-97a29738353f
 import json
 from rss import RssBase
-from web_scrapping.sources import ReutersScrapper
+from web_scrapping.sources import ReutersScrapper,NyTimesScrapper
 
-result = RssBase(['http://feeds.reuters.com/reuters/healthNews']).run()
+result = RssBase(['https://rss.nytimes.com/services/xml/rss/nyt/Health.xml']).run()
 print(f"Total resultados para el tag healthNews {len(result)}")
 for r in result:
-    print(f'------------------------{r.title}-----------------------')
-    web = ReutersScrapper(r).run()
+    print(f'------------------------{r.url}-----------------------')
+    web = NyTimesScrapper(r).run()
     print(web.to_dict())

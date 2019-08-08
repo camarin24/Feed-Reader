@@ -16,6 +16,6 @@ class ReutersScrapper(WebScrappingBase):
         for c in childs:
             results.append(c.text)
         return New(
-            new=" ".join(results),
+            new=" ".join(results).encode("utf8"),
             feed=self.feed
         )

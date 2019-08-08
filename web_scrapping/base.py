@@ -1,6 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from selenium import webdriver
 import requests
+import os
 
 
 class WebScrappingBase(metaclass=ABCMeta):
@@ -12,7 +13,8 @@ class WebScrappingBase(metaclass=ABCMeta):
         pass
 
     def compile(self, url):
-        driver = webdriver.Firefox(executable_path='C:/geckodriver.exe')
+        driver = webdriver.Firefox(
+            executable_path=os.getcwd() + '/drivers/geckodriver')
         driver.get(url)
         driver.find_element_by_class_name
         results = self.parse(driver)
