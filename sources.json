@@ -1,6 +1,7 @@
 [
     {
         "source": "RTS",
+        "name":"Reuters",
         "urls": [
             "http://feeds.reuters.com/news/artsculture",
             "http://feeds.reuters.com/reuters/businessNews",
@@ -10,16 +11,60 @@
             "http://feeds.reuters.com/reuters/healthNews",
             "http://feeds.reuters.com/reuters/lifestyle",
             "http://feeds.reuters.com/news/wealth",
-            "http://feeds.reuters.com/reuters/oddlyEnoughNews",
-            "http://feeds.reuters.com/ReutersPictures",
             "http://feeds.reuters.com/reuters/peopleNews",
             "http://feeds.reuters.com/Reuters/PoliticsNews",
             "http://feeds.reuters.com/reuters/scienceNews",
-            "http://feeds.reuters.com/reuters/sportsNews",
             "http://feeds.reuters.com/reuters/technologyNews",
             "http://feeds.reuters.com/reuters/topNews",
             "http://feeds.reuters.com/Reuters/domesticNews",
             "http://feeds.reuters.com/Reuters/worldNews"
+        ]
+    },
+    {
+        "source": "NYT",
+        "name":"The New York Times",
+        "urls": [
+            "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Africa.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Americas.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Europe.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Education.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/US.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Upshot.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/NYRegion.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/EnergyEnvironment.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/SmallBusiness.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Economy.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/PersonalTech.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Climate.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Space.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/Health.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/MostViewed.xml",
+            "https://rss.nytimes.com/services/xml/rss/nyt/MostShared.xml"
+        ]
+    },
+    {
+        "source": "CNN",
+        "name":"CNN",
+        "urls": [
+            "http://rss.cnn.com/rss/edition.rss",
+            "http://rss.cnn.com/rss/edition_africa.rss",
+            "http://rss.cnn.com/rss/edition_americas.rss",
+            "http://rss.cnn.com/rss/edition_asia.rss",
+            "http://rss.cnn.com/rss/edition_europe.rss",
+            "http://rss.cnn.com/rss/edition_meast.rss",
+            "http://rss.cnn.com/rss/edition_us.rss",
+            "http://rss.cnn.com/rss/money_news_international.rss",
+            "http://rss.cnn.com/rss/edition_technology.rss",
+            "http://rss.cnn.com/rss/edition_space.rss",
+            "http://rss.cnn.com/rss/cnn_latest.rss",
+            "http://rss.cnn.com/rss/money_technology.rss"
         ]
     }
 ]

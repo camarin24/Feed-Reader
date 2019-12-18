@@ -21,6 +21,7 @@ class NyTimesScrapper(WebScrappingBase):
                     results.append(p.text)
 
         return New(
-            new=" ".join(results).encode("utf8"),
+            new=self.remove_xml(" ".join(results).encode(
+                'ascii', errors='ignore')),
             feed=self.feed
         )
