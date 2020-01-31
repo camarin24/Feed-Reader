@@ -1,7 +1,21 @@
 [
     {
+        "source": "FS",
+        "name": "Feedstuffs",
+        "urls": [
+            "https://www.feedstuffs.com/rss.xml"
+        ]
+    },
+    {
+        "source": "FN",
+        "name": "Feed Navigator",
+        "urls": [
+            "https://www.feednavigator.com/Info/FeedNavigator-RSS"
+        ]
+    },
+    {
         "source": "RTS",
-        "name":"Reuters",
+        "name": "Reuters",
         "urls": [
             "http://feeds.reuters.com/news/artsculture",
             "http://feeds.reuters.com/reuters/businessNews",
@@ -22,7 +36,7 @@
     },
     {
         "source": "NYT",
-        "name":"The New York Times",
+        "name": "The New York Times",
         "urls": [
             "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
             "https://rss.nytimes.com/services/xml/rss/nyt/Africa.xml",
@@ -51,7 +65,7 @@
     },
     {
         "source": "CNN",
-        "name":"CNN",
+        "name": "CNN",
         "urls": [
             "http://rss.cnn.com/rss/edition.rss",
             "http://rss.cnn.com/rss/edition_africa.rss",

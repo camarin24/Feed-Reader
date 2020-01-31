@@ -91,7 +91,6 @@ class RssBase(object):
         """
         results = []
         for f in feeds:
-            print(f.summary)
             for t in self.tags:
                 if self.findWholeWord(t)(f.summary if f.summary is not None else f.title) is not None:
                     f.classifier_tags.append(t)

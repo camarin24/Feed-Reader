@@ -1,9 +1,10 @@
-from web_scrapping.sources import NyTimesScrapper, ReutersScrapper, CnnScrapper
+from web_scrapping.sources import NyTimesScrapper, ReutersScrapper, CnnScrapper, FeedstuffsScrapper, FeedNavigatorScrapper
+from pathlib import Path
 from rss import RssBase
 from sql import Sql
 import json
 import os
-from pathlib import Path
+
 
 class Orchestrator:
     def __init__(self):
@@ -17,11 +18,15 @@ class Orchestrator:
 
     def __get_web_driver(self, key, feed):
         if key == "RTS":
-            return ReutersScrapper(self.path,feed)
+            return ReutersScrapper(self.path, feed)
         elif key == "NYT":
-            return NyTimesScrapper(self.path,feed)
+            return NyTimesScrapper(self.path, feed)
         elif key == "CNN":
-            return CnnScrapper(self.path,feed)
+            return CnnScrapper(self.path, feed)
+        elif key == "FS":
+            return FeedstuffsScrapper(self.path, feed)
+        elif key == "FN":
+            return FeedNavigatorScrapper(self.path, feed)
 
     def __run(self, resource):
         print(f"Getting results for {resource['source']}")
