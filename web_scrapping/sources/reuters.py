@@ -5,8 +5,8 @@ from web_scrapping import New
 
 
 class ReutersScrapper(WebScrappingBase):
-    def __init__(self, feed):
-        super(ReutersScrapper, self).__init__(feed)
+    def __init__(self, path, feed):
+        super(ReutersScrapper, self).__init__(path, feed)
 
     def parse(self, driver):
         results = []

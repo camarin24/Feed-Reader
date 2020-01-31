@@ -2,30 +2,31 @@ from web_scrapping.sources import NyTimesScrapper, ReutersScrapper, CnnScrapper
 from rss import RssBase
 from sql import Sql
 import json
-
+import os
+from pathlib import Path
 
 class Orchestrator:
     def __init__(self):
-        pass
+        self.path = os.path.dirname(os.path.abspath(__file__))
 
     def __load_sources(self):
         response = None
-        with open('sources.json') as file:
+        with open(f'{self.path}/sources.json') as file:
             response = json.load(file)
         return response
 
     def __get_web_driver(self, key, feed):
         if key == "RTS":
-            return ReutersScrapper(feed)
+            return ReutersScrapper(self.path,feed)
         elif key == "NYT":
-            return NyTimesScrapper(feed)
+            return NyTimesScrapper(self.path,feed)
         elif key == "CNN":
-            return CnnScrapper(feed)
+            return CnnScrapper(self.path,feed)
 
     def __run(self, resource):
         print(f"Getting results for {resource['source']}")
         results = []
-        feeds = RssBase(resource['urls'], resource['name']).run()
+        feeds = RssBase(self.path, resource['urls'], resource['name']).run()
         for f in feeds:
             driver = self.__get_web_driver(resource['source'], f)
             try:

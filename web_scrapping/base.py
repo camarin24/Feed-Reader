@@ -1,4 +1,6 @@
+from selenium.webdriver.firefox.options import Options
 from abc import ABCMeta, abstractmethod
+from selenium import webdriver
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import requests
@@ -6,8 +8,9 @@ import os
 
 
 class WebScrappingBase(metaclass=ABCMeta):
-    def __init__(self, feed):
+    def __init__(self, path, feed):
         self.feed = feed
+        self.path = path
 
     @abstractmethod
     def parse(self, driver):
@@ -17,10 +20,11 @@ class WebScrappingBase(metaclass=ABCMeta):
         return BeautifulSoup(text, "lxml").text
 
     def compile(self, url):
+        options = Options()
+        options.headless = True
         driver = webdriver.Firefox(
-            executable_path=os.getcwd() + '/drivers/geckodriver')
+            executable_path=f'{self.path}/drivers/geckodriver', options=options)
         driver.get(url)
-        driver.find_element_by_class_name
         results = self.parse(driver)
         driver.quit()
         return results

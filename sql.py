@@ -20,8 +20,6 @@ class Sql:
         if self.news is None:
             self.news = [t['Title']
                          for t in self.__get_as_dict("SELECT Title FROM [Ai].[New]")]
-            print(self.news)
-        print(title in self.news)
         return title not in self.news
 
     def __parse_news(self, news):
@@ -40,12 +38,14 @@ class Sql:
 
         return results
 
+    def getTags(self):
+        tags = self.__get_as_dict("SELECT Name FROM [Ai].[TagNews]")
+        return [t['Name'] for t in tags]
+
     def insert(self, news):
         query = "INSERT INTO [Ai].[New] ([Title],[Summary],[Text],[Date],[SourceTags],[Tags],[Url],[Source]) VALUES(?,?,?,?,?,?,?,?)"
         rows = self.__parse_news(news)
-        print(f'News inserted {len(rows)}')
         if len(rows) > 0:
-            print(rows)
             cursor = self.cnx.cursor()
             cursor.executemany(query, rows)
             cursor.commit()

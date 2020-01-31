@@ -5,8 +5,8 @@ from web_scrapping import New
 
 
 class CnnScrapper(WebScrappingBase):
-    def __init__(self, feed):
-        super(CnnScrapper, self).__init__(feed)
+    def __init__(self, path, feed):
+        super(CnnScrapper, self).__init__(path, feed)
 
     def parse(self, driver):
         results = []

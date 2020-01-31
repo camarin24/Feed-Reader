@@ -5,10 +5,12 @@ import json
 import time
 import ssl
 import re
+import os
+from sql import Sql
 
 
 class RssBase(object):
-    def __init__(self, source_urls, source):
+    def __init__(self, path, source_urls, source):
         """[summary]
 
         Arguments:
@@ -17,11 +19,10 @@ class RssBase(object):
         self.source_urls = source_urls
         self.source = source
 
-        with open('abbreviations.json') as file:
+        with open(f'{path}/abbreviations.json') as file:
             self.abbreviations = json.load(file)
 
-        with open('tags.json') as file:
-            self.tags = json.load(file)
+        self.tags = Sql().getTags()
 
     def parse(self, item):
         """[summary]
@@ -90,6 +91,7 @@ class RssBase(object):
         """
         results = []
         for f in feeds:
+            print(f.summary)
             for t in self.tags:
                 if self.findWholeWord(t)(f.summary if f.summary is not None else f.title) is not None:
                     f.classifier_tags.append(t)
